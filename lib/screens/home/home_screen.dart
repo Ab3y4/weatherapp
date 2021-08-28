@@ -12,19 +12,11 @@ class HomeScreen extends StatelessWidget {
         ),
         body: Column(
           children: [
-            InkWell(
-              child: Text(controller.text),
-              onTap: () {
-                controller.text = 'oshada';
-                controller.update();
-              },
-            ),
-
-            // Expanded(
-            //   child: ListView.builder(itemBuilder: (context, index) {
-            //     return Card();
-            //   }),
-            // )
+            Expanded(
+              child: ListView.builder(itemBuilder: (context, index) {
+                return Card();
+              }),
+            )
           ],
         ),
       );

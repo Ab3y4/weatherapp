@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       initialRoute: Routes.homeScreen,
       getPages: Routes.routes,
       enableLog: true,
+      theme: ThemeData(primaryColor: Colors.blue),
     );
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:weatherapp/component/custom_card.dart';
+import 'package:weatherapp/model/data_model.dart';
 import 'package:weatherapp/screens/home/home_controller.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -8,15 +10,20 @@ class HomeScreen extends StatelessWidget {
     return GetBuilder<HomeController>(builder: (controller) {
       return Scaffold(
         appBar: AppBar(
-          title: Text('My Weather App'),
+          title: Text(controller.text),
         ),
         body: Column(
           children: [
-            Expanded(
-              child: ListView.builder(itemBuilder: (context, index) {
-                return Card();
-              }),
-            )
+            controller.isLoading
+                ? CircularProgressIndicator()
+                : Expanded(
+                    child: ListView.builder(
+                        itemCount: controller.weatherData.length,
+                        itemBuilder: (context, index) {
+                          DataModel dataModel = controller.weatherData[index];
+                          return CustomCard();
+                        }),
+                  )
           ],
         ),
       );

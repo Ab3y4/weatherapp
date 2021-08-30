@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:weatherapp/component/detail_card.dart';
 import 'package:weatherapp/screens/detail/detail_controller.dart';
 
 class DetailScreen extends StatelessWidget {
@@ -7,10 +8,10 @@ class DetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<DetailController>(builder: (controller) {
       return Scaffold(
-        appBar: AppBar(
-          title: Text("Place"),
-        ),
-      );
+          appBar: AppBar(
+            title: Text("Place"),
+          ),
+          body: DetailCard());
     });
   }
 }

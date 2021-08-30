@@ -21,7 +21,9 @@ class HomeScreen extends StatelessWidget {
                         itemCount: controller.weatherData.length,
                         itemBuilder: (context, index) {
                           DataModel dataModel = controller.weatherData[index];
-                          return CustomCard();
+                          return CustomCard(
+                            dataModel: dataModel,
+                          );
                         }),
                   )
           ],

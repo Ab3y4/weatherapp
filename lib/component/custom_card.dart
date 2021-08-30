@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weatherapp/component/card_controller.dart';
+import 'package:weatherapp/model/data_model.dart';
 import 'package:weatherapp/screens/detail/detail_screen.dart';
 
 class CustomCard extends StatelessWidget {
+  final DataModel dataModel;
+
+  CustomCard({@required this.dataModel});
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CardController>(builder: (controller) {
       return InkWell(
         onTap: () {
-          Get.to(DetailScreen());
+          Get.to(DetailScreen(
+            sunrise: dataModel.sys.sunrise,
+            sunset: dataModel.sys.sunset,
+          ));
         },
         child: Container(
           height: 150.0,
@@ -17,7 +24,7 @@ class CustomCard extends StatelessWidget {
             color: Colors.blueAccent,
             borderRadius: BorderRadius.circular(12.0),
           ),
-          margin: EdgeInsets.symmetric(vertical: 9.0, horizontal: 5.0),
+          margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 5.0),
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Stack(
@@ -41,7 +48,7 @@ class CustomCard extends StatelessWidget {
                           children: [
                             Icon(Icons.add_location),
                             Text(
-                              'colombo',
+                              dataModel.name,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold, fontSize: 15),
                             ),
@@ -59,9 +66,9 @@ class CustomCard extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            "32'C",
+                            dataModel.main.temp.toString() + "'C",
                             style: TextStyle(
-                                fontSize: 50, fontWeight: FontWeight.bold),
+                                fontSize: 40, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
@@ -76,7 +83,7 @@ class CustomCard extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            "Cloud",
+                            dataModel.weather[0].main,
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
@@ -93,7 +100,7 @@ class CustomCard extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            "Broken Cloud",
+                            dataModel.weather[0].description,
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),

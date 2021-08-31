@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:weatherapp/component/detail_card.dart';
 import 'package:weatherapp/screens/detail/detail_controller.dart';
 
 class DetailScreen extends StatelessWidget {
   final int sunset;
   final int sunrise;
-  DetailScreen({this.sunrise, this.sunset});
+  final String name;
+  DetailScreen({this.sunrise, this.sunset, this.name});
   @override
   Widget build(BuildContext context) {
     return GetBuilder<DetailController>(builder: (controller) {
       return Scaffold(
           appBar: AppBar(
-            title: Text("Place"),
+            title: Text(name),
           ),
           body: Container(
             height: 150.0,

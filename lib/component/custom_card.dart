@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:weatherapp/component/card_controller.dart';
 import 'package:weatherapp/model/data_model.dart';
 import 'package:weatherapp/screens/detail/detail_screen.dart';
 
 class CustomCard extends StatelessWidget {
+  String dateShower() {
+    String newDate = DateFormat('yyyy-MM-dd').format(DateTime.now()).toString();
+    return newDate;
+  }
+
   final DataModel dataModel;
 
   CustomCard({@required this.dataModel});
@@ -14,6 +20,7 @@ class CustomCard extends StatelessWidget {
       return InkWell(
         onTap: () {
           Get.to(DetailScreen(
+            name: dataModel.name,
             sunrise: dataModel.sys.sunrise,
             sunset: dataModel.sys.sunset,
           ));
@@ -35,7 +42,7 @@ class CustomCard extends StatelessWidget {
                     Column(
                       children: [
                         Text(
-                          'Date',
+                          dateShower(),
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold),
                         ),

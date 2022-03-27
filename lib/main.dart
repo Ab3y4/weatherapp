@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       initialRoute: Routes.homeScreen,
       getPages: Routes.routes,
       enableLog: true,
-      theme: ThemeData(primaryColor: Colors.blue),
+      theme: ThemeData(primaryColor: Colors.blue[600]),
       debugShowCheckedModeBanner: false,
     );
   }

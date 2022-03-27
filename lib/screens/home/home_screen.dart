@@ -10,23 +10,31 @@ class HomeScreen extends StatelessWidget {
     return GetBuilder<HomeController>(builder: (controller) {
       return Scaffold(
         appBar: AppBar(
-          title: Text(controller.text),
+          title: Text(
+            'My Weather Application',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+            ),
+          ),
         ),
-        body: Column(
-          children: [
-            controller.isLoading
-                ? CircularProgressIndicator()
-                : Expanded(
-                    child: ListView.builder(
-                        itemCount: controller.weatherData.length,
-                        itemBuilder: (context, index) {
-                          DataModel dataModel = controller.weatherData[index];
-                          return CustomCard(
-                            dataModel: dataModel,
-                          );
-                        }),
-                  )
-          ],
+        body: Container(
+          child: Column(
+            children: [
+              controller.isLoading
+                  ? CircularProgressIndicator()
+                  : Expanded(
+                      child: ListView.builder(
+                          itemCount: controller.weatherData.length,
+                          itemBuilder: (context, index) {
+                            DataModel dataModel = controller.weatherData[index];
+                            return CustomCard(
+                              dataModel: dataModel,
+                            );
+                          }),
+                    )
+            ],
+          ),
         ),
       );
     });

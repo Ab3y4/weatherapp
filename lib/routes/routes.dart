@@ -12,6 +12,8 @@ class Routes {
         name: Routes.homeScreen,
         page: () => HomeScreen(),
         binding: HomeBindings()),
-    GetPage(name: Routes.detailScreen, page: () => DetailScreen())
+    GetPage(
+        name: Routes.detailScreen,
+        page: () => DetailScreen())
   ];
 }

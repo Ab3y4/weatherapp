@@ -3,7 +3,7 @@ import 'package:weatherapp/api/api_provider.dart';
 import 'package:weatherapp/model/data_model.dart';
 
 class HomeController extends GetxController {
-  String text = 'My Weather Application';
+  // String text = 'My Weather Application';
   bool isLoading = true;
   List<DataModel> weatherData = [];
 

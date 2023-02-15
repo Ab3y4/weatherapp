@@ -75,7 +75,7 @@ class CustomCard extends StatelessWidget {
                           Text(
                             dataModel.main.temp.toString() + "'C",
                             style: TextStyle(
-                                fontSize: 40, fontWeight: FontWeight.bold),
+                                fontSize: 32, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
@@ -117,7 +117,7 @@ class CustomCard extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top: 60, left: 310),
+                  padding: const EdgeInsets.only(top: 60, left: 340),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [

@@ -17,7 +17,7 @@ class DetailScreen extends StatelessWidget {
           body: Container(
             height: 150.0,
             decoration: BoxDecoration(
-              color: Colors.blueAccent,
+              color: Colors.blue,
               borderRadius: BorderRadius.circular(12.0),
             ),
             margin: EdgeInsets.symmetric(vertical: 9.0, horizontal: 5.0),
@@ -71,7 +71,7 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 70, left: 227),
+                    padding: const EdgeInsets.only(top: 70, left: 253),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
